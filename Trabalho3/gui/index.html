@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>Admin - NeverlandClub</title>
+    <script type="text/javascript" src="eel.js"></script>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+
+    <!-- Bootstrap core CSS     -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Animation library for notifications   -->
+    <link href="assets/css/animate.min.css" rel="stylesheet"/>
+
+    <!--  Light Bootstrap Table core CSS    -->
+    <link href="assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
+
+    <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+
+</head>
+<body>
+
+
+	<div class="wrapper">
+	    <div class="sidebar" data-color="red" data-image="assets/img/sidebar-5.jpg">
+
+	    	<div class="sidebar-wrapper">
+	            <div class="logo">
+	                <div class="logo">
+	    				<center>NeverlandClub</center>
+	                </div>
+	            </div>
+
+	            <ul class="nav">
+	                <li class="active">
+	                    <a href="index.html">
+	                        <i class="pe-7s-graph"></i>
+	                        <p>Home</p>
+	                    </a>
+	                </li>
+	                <li>
+	                    <a href="clientes.html">
+	                        <i class="pe-7s-user"></i>
+	                        <p>Clientes</p>
+	                    </a>
+	                </li>
+	                <li>
+	                    <a href="funcionarios.html">
+	                        <i class="pe-7s-id"></i>
+	                        <p>Funcionarios</p>
+	                    </a>
+	                </li>
+	                <li>
+	                    <a href="proprietarios.html">
+	                        <i class="pe-7s-users"></i>
+	                        <p>Proprietários</p>
+	                    </a>
+	                </li>
+	                <li>
+	                    <a href="bebidas.html">
+	                        <i class="pe-7s-wine"></i>
+	                        <p>Bebidas</p>
+	                    </a>
+	                </li>
+					<li>
+						<a href="comidas.html">
+							<i class="pe-7s-coffee"></i>
+							<p>Comidas</p>
+						</a>
+					</li>
+					<li>
+						<a href="bandas.html">
+							<i class="pe-7s-musiclist"></i>
+							<p>Bandas</p>
+						</a>
+					</li>
+					<li>
+						<a href="djs.html">
+							<i class="pe-7s-graph3"></i>
+							<p>Djs</p>
+						</a>
+					</li>
+					<li>
+						<a href="festa.html">
+							<i class="pe-7s-micro"></i>
+							<p>Festa</p>
+						</a>
+					</li>
+	            </ul>
+	    	</div>
+	    </div>
+
+	    <div class="main-panel">
+
+	        <div class="content" id="lista">
+	            <div class="container-fluid">
+	                <div class="row">
+	                    <div class="col-md-12">
+	                        <div class="card">
+	                            <div class="header">
+	                                <h4 class="title">Venda de Bebidas</h4>
+	                                <p class="category"> O quanto cada bebida foi vendida </p>
+	                            </div>
+								<div class="content table-responsive table-full-width">
+									<table id="table_bebida_1" class="table table-hover table-striped">
+										<thead>
+											<th> BEBIDA / QUANTIDADE VENDIDA</th>
+										</thead>
+										<tbody>
+										</tbody>
+									</table>
+								</div>
+								<div class="header">
+									<h4 class="title">Bebida mais vendida</h4>
+									<p class="category"> Qual foi a bebida mais vendida do NeverlandClub</p>
+								</div>
+								<div class="content table-responsive table-full-width">
+                                    <table id="table_bebida_2" class="table table-hover table-striped">
+										<thead>
+											<th> BEBIDA / QUANTIDADE VENDIDA</th>
+										</thead>
+										<tbody>
+										</tbody>
+									</table>
+								</div>
+								<button type="submit" onclick="get_bebidas()" class="btn btn-info btn-fill pull-right">Listar</button>
+	                        </div>
+	                    </div>
+					</div>
+				</div>
+                
+			<div class="content" id="lista">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="card">
+								<div class="header">
+									<h4 class="title">Gasto de Clientes</h4>
+									<p class="category"> O quanto cada cliente gastou </p>
+								</div>
+								<div class="content table-responsive table-full-width">
+									<table id="table_cliente" class="table table-hover table-striped">
+										<thead>
+											<th> CLIENTE / CPF / TOTAL DE GASTOS</th>
+										</thead>
+										<tbody>
+										</tbody>
+									</table>
+								</div>
+
+								<button type="submit" onclick="get_clientes()" class="btn btn-info btn-fill pull-right">Listar</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="content" id="lista">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="card">
+									<div class="header">
+										<h4 class="title">Fantasias alugadas</h4>
+										<p class="category"> Quais fantasias foram alugadas por qual cliente </p>
+									</div>
+									<div class="content table-responsive table-full-width">
+										<table id="table_fantasia" class="table table-hover table-striped">
+											<thead>
+												<th> FANTASIA / CLIENTE </th>
+											</thead>
+											<tbody>
+											</tbody>
+										</table>
+									</div>
+
+									<button type="submit" onclick="get_fantasia()" class="btn btn-info btn-fill pull-right">Listar</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="content" id="lista">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="card">
+										<div class="header">
+											<h4 class="title">Proprietarios de food-truck</h4>
+											<p class="category"> Todos os proprietarios e seus respectivos caminhões </p>
+										</div>
+										<div class="content table-responsive table-full-width">
+											<table id="table_prop" class="table table-hover table-striped">
+												<thead>
+													<th> PROPRIETARIO / FOOD-TRUCK </th>
+												</thead>
+												<tbody>
+												</tbody>
+											</table>
+										</div>
+
+										<button type="submit" onclick="get_prop()" class="btn btn-info btn-fill pull-right">Listar</button>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="content" id="lista">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-md-12">
+										<div class="card">
+											<div class="header">
+												<h4 class="title">Valor total de vendas de bebida, por festa</h4>
+												<p class="category"> Valor total de vendas de bebida em um determinado bar, em determinada festa </p>
+											</div>
+											<div class="content table-responsive table-full-width">
+												<table id="table_vendaBeb" class="table table-hover table-striped">
+													<thead>
+														<th> DIA / TIPO / VALOR TOTAL </th>
+													</thead>
+													<tbody>
+													</tbody>
+												</table>
+											</div>
+
+											<button type="submit" onclick="get_vendaBeb()" class="btn btn-info btn-fill pull-right">Listar</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="content" id="lista">
+								<div class="container-fluid">
+									<div class="row">
+										<div class="col-md-12">
+											<div class="card">
+												<div class="header">
+													<h4 class="title">Total gasto por clientes em determinado dia</h4>
+													<p class="category"> Valor total que um cliente gastou no dia '2018-12-01' </p>
+												</div>
+												<div class="content table-responsive table-full-width">
+													<table id="table_clienteDia" class="table table-hover table-striped">
+														<thead>
+															<th> CLIENTE / CPF / VALOR TOTAL </th>
+														</thead>
+														<tbody>
+														</tbody>
+													</table>
+												</div>
+
+												<button type="submit" onclick="get_clienteDia()" class="btn btn-info btn-fill pull-right">Listar</button>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="content" id="lista">
+									<div class="container-fluid">
+										<div class="row">
+											<div class="col-md-12">
+												<div class="card">
+													<div class="header">
+														<h4 class="title">Valor da comanda de cada festa</h4>
+														<p class="category"> Valor total da comanda em determinada festa </p>
+													</div>
+													<div class="content table-responsive table-full-width">
+														<table id="table_cmd" class="table table-hover table-striped">
+															<thead>
+																<th> DIA / TIPO / VALOR TOTAL </th>
+															</thead>
+															<tbody>
+															</tbody>
+														</table>
+													</div>
+
+													<button type="submit" onclick="get_cmd()" class="btn btn-info btn-fill pull-right">Listar</button>
+												</div>
+											</div>
+										</div>
+									</div>
+
+
+
+</body>
+
+    <!--   Core JS Files   -->
+    <script src="assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
+	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+    <!--  Notifications Plugin    -->
+    <script src="assets/js/bootstrap-notify.js"></script>
+
+    <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+	<script src="assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
+
+	<script type="text/javascript">
+		async function get_bebidas(){
+			let queries  = await eel.home_queries('./queries/bebidas_qtd.sql')();
+            
+            let table = document.getElementById("table_bebida_1");
+            let array = queries;
+
+			if(array.length > 0){
+				for(var i = 0; i < array.length; i++){
+					// create a new row
+					var newRow = table.insertRow(table.length);
+					for(var j = 0; j < 1; j++){
+						// create a new cell
+						var cell = newRow.insertCell(j);
+						// add value to the cell
+						cell.innerHTML = array[i].toString().replace(/,/g, ". ");
+					}
+				}
+			}else{
+				alert("Não há dados armazenados");
+			}
+        
+			queries  = await eel.home_queries('./queries/max_venda_bebida.sql')();
+            
+            table = document.getElementById("table_bebida_2");
+			array = queries;
+
+			if(array.length > 0){
+				for(var i = 0; i < array.length; i++){
+					// create a new row
+					var newRow = table.insertRow(table.length);
+					for(var j = 0; j < 1; j++){
+						// create a new cell
+						var cell = newRow.insertCell(j);
+						// add value to the cell
+						cell.innerHTML = array[i].toString().replace(/,/g, ", ");
+					}
+				}
+			}else{
+				alert("Não há dados armazenados");
+			}
+            
+		}
+        
+        async function get_clientes(){
+			let queries  = await eel.home_queries('./queries/cliente_ttl_gasto.sql')();
+
+            let table = document.getElementById("table_cliente");
+			let array = queries;
+
+			if(array.length > 0){
+				for(var i = 0; i < array.length; i++){
+					// create a new row
+					var newRow = table.insertRow(table.length);
+					for(var j = 0; j < 1; j++){
+						// create a new cell
+						var cell = newRow.insertCell(j);
+						// add value to the cell
+						cell.innerHTML = array[i].toString().replace(/,/g, ", ");
+					}
+				}
+			}else{
+				alert("Não há dados armazenados");
+			}
+		}
+        
+        async function get_fantasia(){
+			let queries  = await eel.home_queries('./queries/fantasias_clientes.sql')();
+
+            let table = document.getElementById("table_fantasia");
+			let array = queries;
+
+			if(array.length > 0){
+				for(var i = 0; i < array.length; i++){
+					// create a new row
+					var newRow = table.insertRow(table.length);
+					for(var j = 0; j < 1; j++){
+						// create a new cell
+						var cell = newRow.insertCell(j);
+						// add value to the cell
+						cell.innerHTML = array[i].toString().replace(/,/g, ", ");
+					}
+				}
+			}else{
+				alert("Não há dados armazenados");
+			}
+		}
+        
+        async function get_prop(){
+			let queries  = await eel.home_queries('./queries/prop_foodtrucks.sql')();
+
+            let table = document.getElementById("table_prop");
+			let array = queries;
+
+			if(array.length > 0){
+				for(var i = 0; i < array.length; i++){
+					// create a new row
+					var newRow = table.insertRow(table.length);
+					for(var j = 0; j < 1; j++){
+						// create a new cell
+						var cell = newRow.insertCell(j);
+						// add value to the cell
+						cell.innerHTML = array[i].toString().replace(/,/g, ", ");
+					}
+				}
+			}else{
+				alert("Não há dados armazenados");
+			}
+		}
+        
+        async function get_vendaBeb(){
+			let queries  = await eel.home_queries('./queries/ttl_bebida_bar_festa.sql')();
+
+            let table = document.getElementById("table_vendaBeb");
+			let array = queries;
+
+			if(array.length > 0){
+				for(var i = 0; i < array.length; i++){
+					// create a new row
+					var newRow = table.insertRow(table.length);
+					for(var j = 0; j < 1; j++){
+						// create a new cell
+						var cell = newRow.insertCell(j);
+						// add value to the cell
+						cell.innerHTML = array[i].toString().replace(/,/g, ", ");
+					}
+				}
+			}else{
+				alert("Não há dados armazenados");
+			}
+		}
+        
+        async function get_clienteDia(){
+			let queries  = await eel.home_queries('./queries/ttl_cliente_data.sql')();
+
+            let table = document.getElementById("table_clienteDia");
+			let array = queries;
+
+			if(array.length > 0){
+				for(var i = 0; i < array.length; i++){
+					// create a new row
+					var newRow = table.insertRow(table.length);
+					for(var j = 0; j < 1; j++){
+						// create a new cell
+						var cell = newRow.insertCell(j);
+						// add value to the cell
+						cell.innerHTML = array[i].toString().replace(/,/g, ", ");
+					}
+				}
+			}else{
+				alert("Não há dados armazenados");
+			}
+		}
+        
+        async function get_cmd(){
+			let queries  = await eel.home_queries('./queries/vlr_cmds_festa.sql')();
+
+            let table = document.getElementById("table_cmd");
+			let array = queries;
+
+			if(array.length > 0){
+				for(var i = 0; i < array.length; i++){
+					// create a new row
+					var newRow = table.insertRow(table.length);
+					for(var j = 0; j < 1; j++){
+						// create a new cell
+						var cell = newRow.insertCell(j);
+						// add value to the cell
+						cell.innerHTML = array[i].toString().replace(/,/g, ", ");
+					}
+				}
+			}else{
+				alert("Não há dados armazenados");
+			}
+		}
+        
+	</script>
+
+</html>
